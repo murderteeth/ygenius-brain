@@ -12,6 +12,7 @@ Frontend Source: https://github.com/yearn/ygenius-webui
 - copy `.env.sample` to `.env` and set environment variables (only `OPENAI_API_KEY` is mandatory)
 - copy `index.json` model file to the current dir or generate a new one
 
+
 ## Run
 
 Install docker and docker-compose and run:
@@ -33,4 +34,15 @@ Output:
   to a range of financial services, including yield farming, liquidity pools, and
   automated portfolio management. Yearn is built on the Ethereum blockchain and is
   designed to make it easier for users to maximize their returns on their investments.
+```
+
+## Build index.json
+
+```bash
+python -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+export $(cat .env | xargs)
+. build_index.sh
+mv index_new.json index.json
 ```
